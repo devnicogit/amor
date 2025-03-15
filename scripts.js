@@ -7,7 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const mensajeFinal = document.getElementById('mensaje-final');
   
 
-    musica.play();
+    if (musica) {
+      musica.play();
+    }
   
 
     function crearCorazon() {
@@ -23,22 +25,26 @@ document.addEventListener('DOMContentLoaded', () => {
   
 
     document.body.addEventListener('click', () => {
-      if (mensajeInicial.classList.contains('oculto')) return;
-  
-      mensajeInicial.classList.add('oculto');
-      carta.classList.add('mostrar');
+      if (!mensajeInicial.classList.contains('oculto')) {
+        mensajeInicial.classList.add('oculto');
+        carta.classList.add('mostrar');
   
 
-      setInterval(crearCorazon, 300);
+        setInterval(crearCorazon, 300);
+      }
     });
   
 
     setTimeout(() => {
-      botonFinal.classList.add('mostrar');
+      if (botonFinal) {
+        botonFinal.classList.add('mostrar');
+      }
     }, 5000);
   
 
-    botonFinal.addEventListener('click', () => {
-      mensajeFinal.classList.add('mostrar');
-    });
+    if (botonFinal) {
+      botonFinal.addEventListener('click', () => {
+        mensajeFinal.classList.add('mostrar');
+      });
+    }
   });
