@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9d7e6;
+    color: #333;
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  #container {
+    padding: 20px;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #titulo {
+    font-size: 2.5rem;
+    animation: aparecer 2s ease-in-out;
+  }
+  
+  #mensaje-inicial {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    animation: parpadear 1.5s infinite;
+  }
+  
+  #carta {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 600px;
+    text-align: left;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  #carta.mostrar {
+    opacity: 1;
+  }
+  
+  #boton-final {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  #boton-final.mostrar {
+    opacity: 1;
+  }
+  
+  #mensaje-final {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #ff6f61;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  #mensaje-final.mostrar {
+    opacity: 1;
+  }
+  
+  .corazon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    animation: flotar 5s linear infinite;
+  }
+  
+  @keyframes aparecer {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes parpadear {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  
+  @keyframes flotar {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-100vh) rotate(360deg); }
+  }
